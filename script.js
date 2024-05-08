@@ -11,3 +11,12 @@ body.addEventListener('keydown',(event)=>{
         vid.pause()
     }
 })
+
+vid.addEventListener('ontouchstart',(event)=>{
+    if(event){
+        vid.play()
+    }
+    else{
+        vid.pause()
+    }
+})
