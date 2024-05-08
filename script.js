@@ -1,9 +1,10 @@
 const body =document.querySelector('body')
 const div = document.querySelector('div')
 const vid=document.querySelector('video')
-console.log(vid)
 
-body.addEventListener('keydown',(event)=>{
+isPlaying =false
+
+document.addEventListener('keydown',(event)=>{
     if(event.code =='Space'){
         vid.play()
     }
@@ -12,11 +13,18 @@ body.addEventListener('keydown',(event)=>{
     }
 })
 
-vid.addEventListener('ontouchstart',(event)=>{
-    if(event){
+document.addEventListener('touchstart',(event)=>{
+    event.preventDefault();
+    if(!isPlaying){
         vid.play()
+        isPlaying = true
     }
-    else{
+    
+})
+document.addEventListener('touchend',(event)=>{
+    if(isPlaying){
         vid.pause()
+        isPlaying = false
     }
+    
 })
